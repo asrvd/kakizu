@@ -2,6 +2,8 @@ const CF_TOKEN = process.env.CLOUDFLARE_AI_TOKEN;
 
 console.log(CF_TOKEN);
 
+export const runtime = "edge";
+
 function dataURLToBuffer(dataURL: string) {
   const base64 = dataURL.split(",")[1];
 

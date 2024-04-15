@@ -19,7 +19,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Toast } from "@/components/ui/toast";
+import { toast } from "sonner";
 
 const Drawer = dynamic(() => import("@/components/drawer"), { ssr: false });
 
@@ -65,8 +65,9 @@ export default function Page() {
       body: JSON.stringify({ img: generatedImage }),
     });
 
-    const url = await res.text();
-    console.log(url);
+    if (res.status === 200) {
+      toast("Image saved to your bookmarks!");
+    }
   }
 
   return (
